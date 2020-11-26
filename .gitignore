@@ -2,7 +2,7 @@
 
 .gitignore
 .idea/
-
+keys.js
 
 /node_modules
 /.pnp
