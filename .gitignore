@@ -2,6 +2,7 @@
 
 .gitignore
 .idea/
+# ignore password file
 dev.js
 
 /node_modules
