@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import {HOME_ROUTE, PRIMARY_APP_PAGE} from "../../routes/constants";
 
 class Header extends Component {
 
@@ -19,9 +21,12 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <a className="left brand-logo">
+                    <Link
+                        to={this.props.auth ? PRIMARY_APP_PAGE : HOME_ROUTE}
+                        className="left brand-logo"
+                    >
                         Romeo
-                    </a>
+                    </Link>
                     <ul className="right">
 
                         {this.renderContent()}
