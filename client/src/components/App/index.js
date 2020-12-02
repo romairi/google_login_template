@@ -11,7 +11,6 @@ import Header from "../Header";
 class App extends Component {
 
     componentDidMount() {
-        console.log(this.props);
         this.props.fetchUser();
     }
 

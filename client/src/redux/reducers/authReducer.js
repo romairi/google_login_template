@@ -2,10 +2,13 @@ import {FETCH_USER} from "../actions/constants";
 
 
 export default function (state = null, action) {
+    let newState;
     switch (action.type) {
         case FETCH_USER:
-            return action.payload || false;
+            newState = action.payload.data || false;
+            break;
         default:
-            return state;
+            newState = state;
     }
+    return newState;
 }
