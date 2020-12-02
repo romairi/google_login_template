@@ -5,7 +5,8 @@ const {
     CURRENT_USER,
     LOGIN_APP,
     LOGOUT,
-    GOOGLE_CALLBACK
+    GOOGLE_CALLBACK,
+    ROOT_PAGE
 } = require("./constants");
 
 
@@ -24,7 +25,8 @@ module.exports = app => {
 
     app.get(LOGOUT, (req, res) => {
         req.logout();
-        res.send(req.user);
+        // res.send(req.user);
+        res.redirect(ROOT_PAGE);
     });
 
     app.get(CURRENT_USER, (req, res) => {
