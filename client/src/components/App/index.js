@@ -1,22 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
+import {connect} from "react-redux";
 
-import './index.css';
+
+import * as actions from '../../redux/actions';
 import Routes from '../../routes/index';
 import Header from "../Header";
 
 
-const App = () => {
-    return (
-        <div className="App">
+class App extends Component {
 
-            <Router>
-                <Header/>
-                <Routes/>
-            </Router>
+    componentDidMount() {
+        this.props.fetchUser();
+    }
 
-        </div>
-    );
-};
 
-export default App;
+    render() {
+        return (
+            <div className="container">
+                <Router>
+                    <Header/>
+                    <Routes/>
+                </Router>
+            </div>
+        );
+    }
+}
+
+export default connect(null, actions)(App);
