@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {HOME_ROUTE, PRIMARY_APP_PAGE} from "../../routes/constants";
+import './index.scss';
+
 
 class Header extends Component {
 
@@ -10,9 +12,9 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a href="/auth/google">Login With Google</a></li>;
+                return <li><a className='nav-link-item' href="/auth/google">Login With Google</a></li>;
             default:
-                return <li><a href="/api/logout">Logout</a></li>
+                return <li><a className='nav-link-item' href="/api/logout">Logout</a></li>
 
         }
     }
@@ -23,7 +25,7 @@ class Header extends Component {
                 <div className="nav-wrapper">
                     <Link
                         to={this.props.auth ? PRIMARY_APP_PAGE : HOME_ROUTE}
-                        className="left brand-logo"
+                        className="left brand-logo nav-link-item"
                     >
                         Romeo
                     </Link>

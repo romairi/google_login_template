@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import * as actions from '../../redux/actions';
 import Routes from '../../routes/index';
 import Header from "../Header";
-
+import './index.scss';
 
 class App extends Component {
 
@@ -17,7 +17,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="app-container">
                 <Router>
                     <Header/>
                     <Routes/>

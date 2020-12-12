@@ -1,0 +1,10 @@
+@import "../../scss/variables";
+
+.nav-wrapper {
+  background-color: $primary-background-color;
+  color: #1c1e21;
+
+  .nav-link-item {
+    color: $primary-text-color;
+  }
+}
