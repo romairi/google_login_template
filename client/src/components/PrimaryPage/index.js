@@ -1,8 +1,9 @@
 import React from 'react';
+import './index.scss';
 
 const PrimaryPage = () => {
     return(
-        <div>
+        <div className="primary-page-container">
             Primary Page Application
         </div>
     )

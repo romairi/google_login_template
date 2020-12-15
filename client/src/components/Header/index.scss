@@ -1,0 +1,15 @@
+@import "../../scss/variables";
+
+.nav-wrapper {
+  background-color: $primary-background-color;
+  color: #1c1e21;
+
+  .nav-link-item {
+    color: $primary-text-color;
+    margin-left: 10px;
+  }
+
+  .li-item-header {
+    margin: 0 10px;
+  }
+}

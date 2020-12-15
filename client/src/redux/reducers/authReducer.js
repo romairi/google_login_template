@@ -5,7 +5,7 @@ export default function (state = null, action) {
     let newState;
     switch (action.type) {
         case FETCH_USER:
-            newState = action.payload.data || false;
+            newState = action.payload || false;
             break;
         default:
             newState = state;

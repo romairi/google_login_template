@@ -17,6 +17,7 @@ middleware(app);
 
 
 require('./server/routes/authRoutes')(app);
+require('./server/routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 
