@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {HOME_ROUTE, PRIMARY_APP_PAGE} from "../../routes/constants";
+import Payments from '../Payments';
 import './index.scss';
 
 
@@ -14,7 +15,17 @@ class Header extends Component {
             case false:
                 return <li><a className='nav-link-item' href="/auth/google">Login With Google</a></li>;
             default:
-                return <li><a className='nav-link-item' href="/api/logout">Logout</a></li>
+                return [
+                    <li key='1' className='li-item-header'>
+                        <Payments/>
+                    </li>,
+                    <li key='3' className='li-item-header'>
+                        Credits: {this.props.auth.credits}
+                    </li>,
+                    <li key='2' className='li-item-header'>
+                        <a className='nav-link-item' href="/api/logout">Logout</a>
+                    </li>
+                ];
 
         }
     }

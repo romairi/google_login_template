@@ -8,6 +8,7 @@ import Routes from '../../routes/index';
 import Header from "../Header";
 import './index.scss';
 
+
 class App extends Component {
 
     componentDidMount() {
@@ -28,3 +29,5 @@ class App extends Component {
 }
 
 export default connect(null, actions)(App);
+
+
