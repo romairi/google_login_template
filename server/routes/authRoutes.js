@@ -25,7 +25,6 @@ module.exports = app => {
 
     app.get(LOGOUT, (req, res) => {
         req.logout();
-        // res.send(req.user);
         res.redirect(ROOT_PAGE);
     });
 
