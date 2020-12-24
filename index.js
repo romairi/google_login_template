@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const middleware = require('./server/middleware');
 const keys = require('./server/config/keys');
+require('./server/models/User');
+require('./server/models/Survey');
 require('./server/services/passport');
 
 mongoose.connect(keys.mongoURI, {
@@ -18,6 +20,7 @@ middleware(app);
 
 require('./server/routes/authRoutes')(app);
 require('./server/routes/billingRoutes')(app);
+require('./server/routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up productions assets
