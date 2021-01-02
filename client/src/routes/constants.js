@@ -1,2 +1,3 @@
 export const HOME_ROUTE = '/';
-export const PRIMARY_APP_PAGE = '/surveys';
+export const SURVEYS = '/surveys';
+export const NEW_SURVEY = SURVEYS + '/new';

@@ -1,0 +1,44 @@
+@import "../../../scss/variables";
+
+.survey-form-review-container {
+  margin-top: 30px;
+  padding: 15px;
+
+  .form-review-item {
+    margin-top: 15px;
+  }
+
+  .form-review-submit {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .btn-back {
+      cursor: pointer;
+      width: 80px;
+      height: 30px;
+      padding: .375rem .75rem;
+      background-color: blue;
+      color: $primary-background-color;
+      font-weight: 400;
+      font-size: 1rem;
+      text-align: center;
+      border-radius: .35rem;
+      border: none;
+    }
+
+    .btn-send {
+      cursor: pointer;
+      width: 80px;
+      height: 30px;
+      padding: .375rem .75rem;
+      background-color: $submit-btn-color;
+      color: $primary-background-color;
+      font-weight: 400;
+      font-size: 1rem;
+      text-align: center;
+      border-radius: .35rem;
+      border: none;
+    }
+  }
+}

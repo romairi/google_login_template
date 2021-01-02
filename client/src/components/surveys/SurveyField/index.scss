@@ -1,0 +1,11 @@
+@import "../../../scss/variables";
+
+.survey-field-container {
+  .input-survey-field {
+    margin-bottom: 5px;
+  }
+
+  .error-message {
+    color: $error-color-message !important;
+  }
+}

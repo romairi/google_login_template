@@ -6,7 +6,7 @@ const HomePage = () => {
         <div className="home-page-container">
             HOME PAGE
         </div>
-    )
+    );
 };
 
 export default HomePage;
