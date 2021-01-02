@@ -5,6 +5,7 @@ import {FIELDS} from "../constants";
 import {withRouter} from 'react-router-dom';
 // import {submitSurvey} from '../../../redux/actions';
 import * as actions from '../../../redux/actions';
+import './index.scss';
 
 
 /**
@@ -16,7 +17,7 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
 
     const reviewFields = _.map(FIELDS, ({name, label}) => {
         return (
-            <div key={name}>
+            <div className="form-review-item" key={name}>
                 <label>{label}</label>
                 <div>
                     {formValues[name]}
@@ -26,16 +27,20 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
     });
 
     return (
-        <div>
+        <div className="survey-form-review-container">
             <h5>Please confirm your entries</h5>
             {reviewFields}
-            <button className="yellow darken-3 white-text btn-flat" onClick={onCancel}>
-                Back
-            </button>
-            <button className="green btn-flat white-text right" onClick={() => submitSurvey(formValues, history)}>
-                Send Survey
-                <i className="material-icons right">email</i>
-            </button>
+            <div className="form-review-submit">
+                {/*<button className="yellow darken-3 white-text btn-flat" onClick={onCancel}>*/}
+                {/*    Back*/}
+                {/*</button> */}
+                <button className="btn-back" onClick={onCancel}>
+                    Back
+                </button>
+                <button className="btn-send" onClick={() => submitSurvey(formValues, history)}>
+                    Send
+                </button>
+            </div>
         </div>
     )
 };
