@@ -6,6 +6,8 @@ require('./server/models/User');
 require('./server/models/Survey');
 require('./server/services/passport');
 
+
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,

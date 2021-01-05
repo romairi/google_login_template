@@ -38,7 +38,7 @@ class Header extends Component {
                         to={this.props.auth ? SURVEYS : HOME_ROUTE}
                         className="left brand-logo nav-link-item"
                     >
-                        Romeo
+                        Survey
                     </Link>
                     <ul className="right">
 
