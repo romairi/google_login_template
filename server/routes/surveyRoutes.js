@@ -6,10 +6,18 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const Mailer = require('../services/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
-const surveySchema = require('../models/Survey');
+const SurveyModel = require('../models/Survey');
 
 
 module.exports = app => {
+
+    app.get('/api/surveys', requireLogin, async (req, res) => {
+        const surveys = await SurveyModel.find({_user: req.user.id})
+            .select({recipients: false});
+
+        res.send(surveys);
+    });
+
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for voting!');
     });
@@ -17,7 +25,7 @@ module.exports = app => {
     app.post('/api/surveys/webhooks', (req, res) => {
         const p = new Path('/api/surveys/:surveyId/:choice');
 
-        const events = _.chain(req.body)
+        _.chain(req.body)
             .map(({email, url}) => {
                 const match = p.test(new URL(url).pathname);
                 if (match) {
@@ -27,7 +35,7 @@ module.exports = app => {
             .compact()
             .uniqBy('email', 'surveyId')
             .forEach(({surveyId, email, choice}) => {
-                surveySchema.updateOne({
+                SurveyModel.updateOne({
                         _id: surveyId,
                         recipients: {
                             $elemMatch: {email: email, responded: false}
@@ -42,14 +50,13 @@ module.exports = app => {
             .value();
 
 
-        console.log(events);
         res.send({});
     });
 
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         const {title, subject, body, recipients} = req.body;
 
-        const survey = new surveySchema({
+        const survey = new SurveyModel({
             title,
             subject,
             body,
